@@ -1,0 +1,667 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+li,ol,ul {list-style: none;}
+a {text-decoration: none;}
+img,video {vertical-align: top;}
+body {line-height: 1; font-size: 15px; font-family: 'Titillium Web', sans-serif;}
+.clear-fix::after {content: ""; display: block; clear: both;}
+
+/*body*/
+#scroll_chg::-webkit-scrollbar {width: 7px;}
+#scroll_chg::-webkit-scrollbar-thumb {background: #ffde00;}
+#scroll_chg.none::-webkit-scrollbar {display: none;}
+
+/*header 영역*/
+#header .logo {position: fixed; z-index: 99; left: 120px; top: 70px;}
+#header .logo img {width: 80px;}
+#header .logo::after {content: ""; display: inline-block; background-image: url(../img/logo_text.png);
+                      background-position: center; background-repeat: no-repeat;
+                      background-size: cover; width: 100%; height: 32px; margin-top: 13px; opacity: 1;
+                      transition: all 0.5s; cursor: pointer; position: relative; bottom: 0;}
+#header .logo.dis::after {bottom: 30px; opacity: 0; cursor: unset;}                        
+
+#header .hide_menu {position: fixed; z-index: 999; right: 110px; padding: 13px 42px 18px 0; top: 70px;}                      
+#header .hide_menu .w_line {background: #fff; height: 5px; width: 42px; position: absolute; transition: all 0.5s;}
+#header .hide_menu .w_line:nth-child(2) {position: absolute; top: -2px;}
+#header .hide_menu .w_line:nth-child(3) {position: absolute; bottom: -2px;}
+#header .hide_menu.active .w_line {top: 50%; transform: translateY(-50%) rotate(45deg); background: #000!important;}
+#header .hide_menu.active .w_line:nth-child(2) {opacity: 0;}
+#header .hide_menu.active .w_line:nth-child(3) {bottom: 50%; transform: translateY(-50%) rotate(-45deg); background: #000!important;}
+#header .welcome {width: 100%; display: none; height: 100%; position: fixed; left: 0; top: 0;
+                  background: #fff;}
+#header .welcome.active {display: block; z-index: 101;}     
+#header .wel_bg {position: absolute; left: 0; top: 0; border: 36px solid #ffde00; width: 100%; height: 100%;}              
+#header .welcome .sm_menu {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); text-align: center;} 
+#header .welcome .sm_menu li {margin-bottom: 40px;}
+#header .welcome .sm_menu li a {font-size: 65px; font-weight: 700; font-style: italic;
+                                transition: all 0.3s; position: relative;
+                                display:inline-block;
+                                background: linear-gradient(to right, #ffde00, #ffde00 50%, #000 50%);
+                                -webkit-text-fill-color:transparent;
+                                -webkit-background-clip:text;
+                                background-size:200% 100%;
+                                background-position:100%;}
+#header .welcome .sm_menu li a span {display: block; padding-right: 10px;}                                
+#header .welcome .sm_menu li:hover a { background-position:0%;}                                       
+#header .welcome .copyright {position: absolute; left: 50%; bottom: 110px; transform: translateX(-50%); text-align: center; font-size: 14px; color: #000;}
+#header .welcome .copyright span {font-weight: 900; margin-left: 3px;}
+#header .welcome .down_list {position: absolute; left: 110px; bottom: 110px;}  
+#header .welcome .down_list li {margin-bottom: 10px;}
+#header .welcome .down_list li a {color: #000; font-weight: 700; font-size: 18px;}
+#header .welcome .down_list li a:hover {color: rgba(0,0,0,0.6);}
+#header .welcome .down_list li a span {margin-left: 5px;}
+#header .welcome .down_list li:nth-child(1) a span {position: relative; top: 4px;}
+
+/*container 영역*/
+#wrap {margin-bottom: 700px;}
+#container {background: #fff; position: relative;}  
+#container .cont1 {height: 100vh; overflow: hidden; position: relative; z-index:5;}
+#container .bg {position: absolute; border: 40px solid #fff; left: 0; top: 0; width: 100%; height: 100%; border-bottom: none; overflow: hidden;
+                opacity: 1; transition: all .5s;}
+#container .video_wrap {overflow: hidden; height: 100vh;}      
+#container video {display: block; height: auto;}
+.text_wrap {width: 100%; position: fixed; z-index: 99; left: 0; top: 50%; overflow: hidden;
+            -webkit-text-stroke:0.1vw #ffffff;}
+.text_wrap.on {position:absolute; top:0;}
+.all_text {width: 1100px; margin: 0 auto;}
+.all_text .c2_context {color: transparent; font-size: 140px; font-weight: 700; display: block; position: relative; overflow: hidden;}
+.all_text .c2_context::before {content:attr(data-text); position:absolute; top:0; left:0; transition:all 1s;
+                                width:100%; height:0%; color:#000; overflow: hidden; -webkit-text-stroke:0vw #ffffff;}
+.all_text .c2_context.on::before {height:100%;}
+
+/*cont2 영역*/
+.cont2 {overflow: hidden; height: 500px; position: relative; z-index:6;}
+
+/*cont3 영역*/
+.cont3 {width: 1300px; margin: 0 auto;}
+.cont3 .service {display: flex; flex-wrap: wrap; justify-content: center; margin: 100px 0;}
+.cont3 .service li {width: 33.33333%; position: relative;}
+.cont3 .service li img {width: 100%;}
+.cont3 .service li:nth-child(4) {width: 66.6666%;}
+.cont3 .service li:nth-child(4) h3 {font-size: 80px; font-style: italic;
+                                    padding: 60px; padding-bottom: 0; margin-bottom: 20px;}
+.cont3 .service li:nth-child(4) .mobile {display: none;}
+.cont3 .service li p {position: absolute; left: 0; top: 0; font-size: 60px; font-weight: 600; font-style: italic; text-align: center; display: flex;
+                      justify-content: center; align-items: center; width: 100%; height: 100%;}
+.cont3 .service li .c3_context {font-size: 25px; line-height: 34px; font-weight: normal; font-style: unset; padding-left: 60px;
+                                position: unset; align-items: unset; justify-content: unset; text-align: unset;}
+
+/*cont4 영역*/
+.cont4 {width: 1300px; margin: 0 auto;}
+.cont4 h2 {font-size: 70px; font-style: italic;}
+.cont4 .portfolio {display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 70px;}
+.cont4 .portfolio li {margin-bottom: 175px; position: relative; text-align: center;}
+.cont4 .portfolio li:nth-child(5) {width: 100%; display: flex; padding: 0 94px; align-items: center;}
+.cont4 .portfolio li .list {width: 100%; height: 640px; overflow: hidden;}
+.cont4 .portfolio li img {transition: all 0.5s; width: 440px;}
+.cont4 .portfolio li:hover img {transform: scale(1.1);}
+.cont4 .portfolio li p {position: absolute; right: -136px; bottom: 61px; color: #000; font-weight: 600; font-size: 23px;
+                        transform: rotate(90deg);}
+.cont4 .portfolio li:nth-child(4) p {right: -193px;}                        
+.cont4 .portfolio li:nth-child(5) .anniv {position: relative; left: 11%; text-align: center;}    
+.cont4 .portfolio li:nth-child(5) .anniv h3 {font-size: 100px;}  
+.cont4 .portfolio li:nth-child(5) .anniv .farm_name {position: static; transform: unset; margin-top: 50px;}  
+.cont4 .portfolio li:nth-child(6) p,                
+.cont4 .portfolio li:nth-child(7) p {right: -81px; bottom: 10px;} 
+.cont4 .view_center {padding-left: 150px;} 
+.cont4 .view_center a {color: #000; font-style: italic; font-size: 40px; font-weight: 700;}
+.cont4 .view_center a i {transition: all 0.5s; font-size: 35px; margin-left: 15px;}
+.cont4 .view_center a:hover i {transform: rotate(270deg);}    
+
+/*cont5 영역*/
+.cont5 {background: #fafafa; padding: 180px 0; padding-bottom: 150px; margin-top: 190px;}
+.cont5 .c5_center {width: 1100px; margin: 0 auto;}
+.cont5 .partner {display: flex; align-items: center; flex-wrap: wrap; text-align: center;}
+.cont5 .partner li {width: 33.33333%; margin-bottom: 60px;}
+
+/*cont6 영역*/
+.cont6 {background-image: url(../img/c6_bg.jpg); background-repeat: no-repeat; background-position: center;
+        background-size: cover; width: 100%; height: 963px;}
+.cont6 .c6_wrap {width: 1100px; margin: 0 auto; display: flex;}
+.cont6 .c6_wrap h3 {font-size: 80px; font-style: italic; padding-top: 188px; margin-right: 100px;}   
+.cont6 .c6_wrap .text_list {width: 616px; padding-top: 150px;}  
+.cont6 .c6_wrap .text_list li {margin-top: 40px; padding: 25px 0; border-bottom: 4px solid #000;
+                               display: flex; justify-content: space-between; align-items: center;
+                               cursor: pointer;}  
+.cont6 .c6_wrap .text_list li span {position: relative;}                               
+.cont6 .c6_wrap .text_list li:hover span {animation-name: rightmove; animation-iteration-count: infinite;
+                                          animation-duration: 1s; animation-timing-function: linear;}  
+@keyframes rightmove {
+        0% {opacity: 0; left: 0;}
+        25% {opacity: 1; left: 5px;}
+        50% {opacity: 1; left: 10px;}
+        75% {opacity: 1; left: 15px;}
+        100% {opacity: 1; left: 20px;}
+}                                                                        
+.cont6 .c6_wrap .text_list li a {font-size: 28px; color: #000; font-weight: 600;}
+.cont6 .c6_wrap .view_plus {display: inline-block; margin-top: 50px; font-size: 30px; font-weight: 600; color: #000;}
+.cont6 .c6_wrap .view_plus::after {content: ""; display: inline-block; width: 0%; height: 3px; background: #000; transition: all 0.5s;
+                                   position: relative; bottom: 13px;}
+.cont6 .c6_wrap .view_plus:hover::after {width: 100%;}
+
+/*brochure 영역*/
+.brochure {position: fixed; z-index: 60; bottom: 0; width: 100%; height: 50px; padding: 0 200px;}
+.brochure::after {content: ""; display: inline-block; background: #fff; width: 100%; height: 7px; transition: all 0.5s;}
+.brochure.black::after {background: #000;}
+.brochure .bro_text {position: absolute; right: 90px; font-size: 20px; font-weight: 700; color: #fff; cursor: pointer;}
+.brochure .bro_text::after {content: "DOWNLOAD"; display: block; text-decoration: underline; font-style: italic; position: absolute; background-image: url(../img/speechbubble.svg); background-size: cover; background-repeat: no-repeat;
+                    width: 151px; height: 92px; bottom: -25px; right: -300px; transition:right 0.5s; line-height: 82px; text-align: center;}  
+.brochure .bro_text:hover::before {right: -20px;}                                      
+.brochure .bro_text:hover::after {right: -20px;}   
+                
+.brochure.black .bro_text {color: #000;}
+
+/*footer 영역*/
+#footer .about_us {position: fixed; overflow: hidden; width: 100%; height: 670px; bottom: 0; z-index: -1;}
+#footer .our_list {position: relative; width: 1300px; height: 100%; margin: 0 auto; z-index: 9;}
+#footer .our_list .list_all {display: table; width: 100%; height: 100%;}
+#footer .our_list .list_all li {display: table-cell; text-align: center; width: 25%; vertical-align: middle;}
+#footer .our_list .list_all li a {font-size: 55px; color: #000; font-weight: 600; display: inline-block; position: relative;}
+#footer .our_list .list_all li a::after {content: ""; display: inline-block; background: #ffde00; position: absolute;
+                                         top: 61%; left: 50%; transform: translate(-50%,-50%); width: 0; height: 4px; transition: all 0.3s;}                                       
+#footer .our_list .list_all li a:hover::after {width: 100%;}   
+#footer .about_us02 {background-image: url(../img/c6_bg.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;
+                     position: fixed; overflow: hidden; width: 100%; height: 670px; bottom: 0; z-index: -1;}
+#footer .about_us02 .our_list .list_all li {width: 33.3333%;}                                      
+
+/*left_fix 영역*/
+#left_fix {position: fixed; z-index: 9999; left: 0; top: 22%;}
+#left_fix .fix_top {background: #ffde00; display: flex; width: 50px; height: 170px; justify-content: center;}
+#left_fix .fix_top img {margin-top: 8px;}
+#left_fix .fix_top p {position: absolute; transform: rotate(270deg); width: 110px; right: -29px; top: 86px; color: #000;
+                      font-size: 17px; font-weight: 700;}
+#left_fix .fix_bot {position: fixed; z-index: 9999; left: 0; top: 40%; 
+                     background: #000; display: flex; width: 50px; height: 170px; justify-content: center;}
+#left_fix .fix_bot i {margin-top: 8px; color: #fff; font-size: 23px;}
+#left_fix .fix_bot p {position: absolute; transform: rotate(270deg); width: 110px; right: -29px; top: 86px;
+                      color: #fff; font-size: 17px; font-weight: 600;}     
+                      
+/*company 영역*/
+.gr_bg {position: absolute; left: 0; top: 0; width: 100%; height: 630px;
+        background: #ededed;}
+.company .com_bg {background-image: url(../img/sub_company.jpg); background-position: center; background-repeat: no-repeat;
+                  background-size: contain; position: relative; height: 630px;}  
+.company .com_bg .com_ftext {position: absolute; left: 365px; top: 152px;}
+.company .com_bg .com_ftext .com_title {color: #ffd200; font-size: 130px; font-style: italic;
+                                        font-weight: bold;}          
+.company .com_bg .com_ftext .com_title span {color: #000; font-size: 80px; font-style: normal;}
+.company .com_bg .com_ftext .com_context {margin-top: 15px; font-size: 20px; font-weight: 700;} 
+
+.com_about {margin: 100px 0;}
+.com_about .about_center {width: 1300px; margin: 0 auto; text-align: right; border-bottom: 6px solid #000;
+                          padding-bottom: 120px;}
+.com_about .about_center .text_box {display: inline-block;}
+.com_about .about_center .our1 {font-size: 23px; font-style: italic; text-align: left; line-height: 30px;}
+.com_about .about_center .text_box img {display: block; text-align: left; margin: 20px 0;}
+
+.com_intro .our_logo {text-align: center; margin: 100px 0;}
+.com_intro .our_moto .moto_center {width: 1300px; margin: 0 auto;}
+.com_intro .our_moto .moto_center .moto_bg {background: #ffde00; width: 100%; height: 400px; display: flex;
+                                            align-items: center; justify-content: space-around;}
+.com_intro .our_moto .moto_center .moto_bg h3 {font-weight: 900; font-size: 27px;}
+.com_intro .our_moto .moto_center .moto_bg .moto_exp .moto_title {font-size: 18px; font-weight: 600; line-height: 30px;
+                                                                  margin-bottom: 30px;}
+.com_intro .our_moto .moto_center .moto_bg .moto_exp .moto_context {font-size: 16px; line-height: 25px;}  
+
+.com_intro .our_moto .moto_center .moto_intro .our_symbol {display: flex;}
+.com_intro .our_moto .moto_center .moto_intro .our_symbol li {position: relative; width: 33.3333%;}
+.com_intro .our_moto .moto_center .moto_intro .our_symbol li span {position: absolute; right: -22px; bottom: 80px;
+                                                                   transform: rotate(90deg); font-size: 14px;}
+.strength {margin: 200px 0; text-align: center;}
+.strength h2 {font-size: 60px;}
+.strength p {background-image: url(../img/strength_bg.png); background-position: center;
+             background-size: contain; background-repeat: no-repeat;
+             font-size: 30px; line-height: 45px; padding: 70px 0;}
+
+/*contact 영역*/
+.contact_all {text-align: center;}         
+.contact_all .contact_bg {background-image: url(../img/contact_bg.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;
+                          width: 100%; height: 400px;}
+.contact_all .contact_text {font-size: 55px; font-weight: 700; margin: 60px 0;}    
+.contact_all .contact_context {font-size: 19px; line-height: 30px; margin-bottom: 50px; color: #555; font-family: 'Noto Sans KR', sans-serif; font-weight: 500;}
+.contact_all .contact_context .mobile {display: none;}
+.contact_all .call {font-size: 19px; color: #555; font-family: 'Noto Sans KR', sans-serif; font-weight: 500;}
+.contact_all .call .mobile {display: none;}
+.contact_all .contact_about label {display: block; margin-bottom: 10px; font-size: 17px; color: #000;}
+.contact_all .contact_about .error_msg {display: none; position: relative; font-size: 14px; left: 10px; bottom: 20px; height: 20px;}
+.contact_all .contact_about .error_msg.bot {bottom: -8px;}
+.contact_all .contact_about.error .error_msg {display: block; color: red;}
+.contact_all .contact_info {width: 800px; margin: 0 auto; margin-top: 100px; text-align: left;}
+.contact_all .contact_info input {margin-bottom: 30px; border: none; border-bottom: 1px solid #ddd; width: 100%; outline: 0;
+                                  padding: 10px;}
+.contact_all .contact_info textarea {width: 100%; resize: none; height: 350px; padding: 10px; border-color: #ddd; outline: 0; margin-top: 10px;}
+.contact_all .contact_info textarea::placeholder {font-family: 'Titillium Web', sans-serif; font-weight: bold; color: #bbb;}                                     
+.contact_all .contact_info input::placeholder {color: #bbb; font-weight: bold;}
+.contact_all button {margin: 50px 0; width: 300px; height: 50px; border: none; background: #ffde00; font-size: 16px; font-weight: 600;
+                     cursor: pointer;}
+.contact_all .contact_menu {margin: 60px 0;}                     
+.contact_all .contact_menu .menu_gnb {display: flex; justify-content: center;}
+.contact_all .contact_menu .menu_gnb li {width: 33.333%;}
+.contact_all .contact_menu .menu_gnb li:nth-child(2) {border-left: 1px solid #dcdcdc; border-right: 1px solid #dcdcdc;}   
+.contact_all .contact_menu .menu_gnb li a {color: #000; font-size: 20px;}                
+.contact_all .contact_menu .menu_gnb li a i {margin-bottom: 25px; font-size: 30px;}  
+.contact_all .contact_menu .menu_gnb li a h3 {margin-bottom: 15px; font-size: 21px;}
+.contact_all .contact_menu .menu_gnb li a p {line-height: 27px; font-size: 19px;}
+
+/*recruit 영역*/
+.recruit {font-family: 'Red Hat Display', sans-serif;}
+.recruit .recruit_bg {background-image: url(../img/recruit_bg.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;
+                      width: 100%; height: 600px; position: relative;}
+.recruit .recruit_title {position: absolute; left: 130px; bottom: 130px; color: #fff;}   
+.recruit .recruit_title h2 {font-size: 50px; margin-bottom: 30px;}
+.recruit .recruit_title p {font-size: 18px; font-weight: 600;}
+.recruit .recruit_fcontext {margin: 130px 0;}
+.recruit .recruit_fcontext .fcontext_center {width: 1300px; margin: 0 auto;}   
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu {display: flex; justify-content: space-between; flex-wrap: wrap;}
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li {position: relative; width: 32%; background: #000; color: #fff; height: 380px; padding: 35px; margin-bottom: 30px; transition: all 0.5s linear;}
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li a {transition: all 0.3s linear; color: #fff; font-weight: 700; font-size: 25px;}
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li img {position: absolute; right: 40px; bottom: 40px; opacity: 1; transition: all 0.3s;}
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:hover img {opacity: 0;}
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li .hover_text {opacity: 0; transition: all 0.3s linear; font-size: 23px; margin-top: 30px; line-height: 30px;}
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(2):hover {background-image: url(../img/recruit02.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;}
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:hover .hover_text {opacity: 1;}
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:hover a {font-size: 18px;}
+
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(3) {background-image: url(../img/recruit03.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;}
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(4):hover {background-image: url(../img/recruit04.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;}
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(5) {background-image: url(../img/recruit05.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;}
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(6):hover {background-image: url(../img/recruit06.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;}
+
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(1) {background: none; color: #000;}    
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(2) {background: #AC6C82;}    
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(4) {background: #FFBC67;}    
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(6) {background: #455C7B;}    
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(1) h2 {line-height: 60px; font-size: 45px; margin-bottom: 28px;}    
+.recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(1) p {font-size: 17px; line-height: 25px;}    
+
+.recruit .recruit_bcontext .bcontext_center {width: 1300px; margin: 0 auto;}
+.recruit .recruit_bcontext .bcontext_center h2 {font-size: 45px; line-height: 60px; margin-bottom: 60px;}
+.recruit .recruit_bcontext .bcontext_center .bcontext_topmenu {display: flex;}
+.recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li {width: 33.3333%; background: #000; text-align: center;}
+.recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li .mobile {display: none;}
+.recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li:nth-child(2) {border-left: 1px solid #bbb; border-right: 1px solid #bbb;}
+.recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li:nth-child(1) {background: #ffde00;}
+.recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li:nth-child(1) a {color: #000;}
+.recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li a {color: #bbb; display: block; height: 100%; padding: 25px 0;}
+.recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li p {margin-bottom: 20px;}
+.recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li.active {background: #ffde00;}
+.recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li.active a {color: #000;}
+.recruit .recruit_bcontext .tab {display: none; padding: 50px;}
+.recruit .recruit_bcontext .tab:nth-child(3) {display: flex;}
+.recruit .recruit_bcontext .bcontext_info > div {width: 45%; font-size: 25px; line-height: 40px; font-weight: 700;}
+.recruit .recruit_bcontext .bcontext_info .bcontext_botmenu {display: flex; flex-wrap: wrap; width: 100%;}
+.recruit .recruit_bcontext .bcontext_info .bcontext_botmenu li {width: 45%; margin: 0 2.5%; margin-bottom: 25px; border-bottom: 1px solid #bbb; padding: 0 10px;}
+.recruit .recruit_bcontext .bcontext_info .bcontext_botmenu li i {font-size: 30px; margin-bottom: 25px;}
+.recruit .recruit_bcontext .bcontext_info .bcontext_botmenu li h3 {margin-bottom: 25px; font-size: 19px;}
+.recruit .recruit_bcontext .bcontext_info .bcontext_botmenu li p {padding-bottom: 40px; font-size: 16px; line-height: 25px;}
+
+.recruit .recruit_bottom {position: relative; background: #f3f3f3; padding: 130px 0;}
+.recruit .recruit_bottom .recbot_center {width: 1300px; margin: 0 auto;}
+.recruit .recruit_bottom .recbot_bg {background-image: url(../img/recruit_botbg.jpg); background-position: center; background-repeat: no-repeat;
+                                     background-size: cover; height: 500px; position: relative;}
+.recruit .recruit_bottom::before {content: ""; position: absolute; background: #fff; left: 0; top: 50%; width: 100%; height: 500px;}                                      
+.recruit .recruit_bottom .recbot_bg .recbot_text {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); text-align: center;}
+.recruit .recruit_bottom .recbot_bg .recbot_text p {color: #fff; font-size: 36px; line-height: 50px; font-weight: 700; margin-bottom: 25px;}
+.recruit .recruit_bottom .recbot_bg .recbot_text p .mobile {display: none;}
+.recruit .recruit_bottom .recbot_bg .recbot_text a {display: block; margin: 0 auto; width: 250px; height: 50px; line-height: 50px;
+                                                    color: #000; background: #fff; border-radius: 30px;
+                                                    font-weight: 900; position: relative; overflow: hidden;}
+
+.recruit .recruit_bottom .recbot_bg .recbot_text a::before {content: ""; position: absolute; left: 0; bottom: 0; background: #ffde00; width: 100%; height: 0%; transition: all 0.5s;}                                                    
+.recruit .recruit_bottom .recbot_bg .recbot_text a:hover::before {height: 100%;}       
+.recruit .recruit_bottom .recbot_bg .recbot_text a::after {content: "한봄스튜디오 채용 바로가기"; width: 100%; position: absolute; left: 50%; top: 0; transform: translateX(-50%);}                                               
+                                                
+/*반응형 웹*/
+/*1300px*/
+@media screen and (max-width:1300px){
+        
+        /*container 영역*/     
+        #container video {width: unset;}
+        .text_wrap {top: 48%;}
+        .all_text .c2_context {font-size: 90px;}
+
+        /*cont2 영역*/
+        .cont2 {height: 380px;}
+
+        /*cont3 영역*/
+        .cont3 {width: 95%;}
+        .cont3 .service li {width: 30%; position: relative;}
+        .cont3 .service li:nth-child(4) {width: 60%;}
+        .cont3 .service li p {font-size: 40px;}
+        
+        /*cont4 영역*/
+        .cont4 {width: 90%;}
+        .cont4 h2 {font-size: 50px;}
+        .cont4 .portfolio li:nth-child(5) .anniv h3 {font-size: 75px;}  
+        
+        /*cont6 영역*/
+        .cont6 {height: 910px;}
+        .cont6 .c6_wrap h3 {font-size: 50px;}   
+        .cont6 .c6_wrap .text_list {padding-top: 128px;}                                                       
+        .cont6 .c6_wrap .text_list li a {font-size: 21px;}
+        .cont6 .c6_wrap .view_plus {font-size: 23px;}
+
+        /*footer 영역*/
+        #footer .our_list {width: 100%;}
+        #footer .our_list .list_all li a {font-size: 40px;}
+
+        /*company 영역*/
+        .company .com_bg .com_ftext {left: 90px; top: 170px;}
+        .company .com_bg .com_ftext .com_title {font-size: 95px;}          
+        .company .com_bg .com_ftext .com_title span {margin-left: 10px;}
+        .company .com_bg .com_ftext .com_context {font-size: 15px;} 
+
+        .com_about .about_center {width: 80%;}
+        .com_about .about_center .our1 {font-size: 20px;}
+
+        .com_intro .our_moto .moto_center {width: 90%;}
+
+        .com_intro .our_moto .moto_center .moto_bg h3 {font-weight: 900; font-size: 27px;}
+        .com_intro .our_moto .moto_center .moto_bg .moto_exp .moto_title {font-size: 18px; font-weight: 600; line-height: 30px;
+                                                                        margin-bottom: 30px;}
+        .com_intro .our_moto .moto_center .moto_bg .moto_exp .moto_context {font-size: 16px; line-height: 25px;}  
+
+        .strength h2 {font-size: 40px;}
+        .strength p {font-size: 20px;}
+
+        /*recruit 영역*/
+        .recruit .recruit_bg {height: 550px;}
+        .recruit .recruit_title {left: 110px;}   
+        .recruit .recruit_title h2 {font-size: 45px;}
+        .recruit .recruit_fcontext .fcontext_center {width: 95%;}   
+        .recruit .recruit_fcontext .fcontext_center .fcontext_menu li:hover a {font-size: 18px;}
+
+        .recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(1) h2 {line-height: 55px; font-size: 40px;}    
+        .recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(1) p br {display: none;}    
+        .recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(2) p br {display: none;}    
+        .recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(6) p br {display: none;}    
+
+        .recruit .recruit_bcontext .bcontext_center {width: 95%;}
+        .recruit .recruit_bcontext .bcontext_center h2 {font-size: 40px;}
+
+        .recruit .recruit_bottom .recbot_center {width: 95%;}
+        .recruit .recruit_bottom .recbot_bg {height: 450px;}                               
+        .recruit .recruit_bottom .recbot_bg .recbot_text p {font-size: 30px;}
+        .recruit .recruit_bottom .recbot_bg .recbot_text a {font-size: 13px;}
+
+        .recruit .recruit_bottom .recbot_bg .recbot_text a::after {width: 100%;} 
+}
+
+@media screen and (max-width:1183px){
+        /*recruit 영역*/
+        .recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(1) h2 {font-size: 36px;}
+}
+
+@media screen and (max-width: 1132px){
+        .recruit .recruit_bottom .recbot_bg .recbot_text p {font-size: 28px;}
+}
+
+@media screen and (max-width:1106px){
+        /*container 영역*/     
+        #container .cont1 {height: 100vh;}
+        #container .video_wrap {height: 100vh;}
+        #container video {width: unset;}
+        .text_wrap {top: 36%; left: 90px;}
+        .all_text .c2_context {font-size: 85px;}
+
+        /*cont2 영역*/
+        .cont2 {height: 300px;}
+
+        /*cont3 영역*/
+        .cont3 .service li:nth-child(4) h3 {font-size: 60px;}
+        .cont3 .service li .c3_context {font-size: 20px; line-height: 30px;}
+
+        /*cont4 영역*/
+        .cont4 .portfolio li p {position: unset; transform: unset; margin-top: 20px; text-align: left;}           
+        .cont4 .portfolio li:nth-child(5) {padding: 0 0;}      
+        .cont4 .portfolio li:nth-child(5) .anniv h3 {font-size: 65px;} 
+        .cont4 .portfolio li:nth-child(5) .anniv .farm_name {text-align: center;} 
+        
+        /*cont5 영역*/
+        .cont5 .c5_center {width: 95%;}
+
+        /*cont6 영역*/
+        .cont6 {height: 1020px;}
+        .cont6 .c6_wrap {flex-direction: column; width: 95%;}
+        .cont6 .c6_wrap h3 {padding-left: 50px;}   
+        .cont6 .c6_wrap .text_list {padding-top: 50px; width: 650px; padding-left: 50px;}  
+        .cont6 .c6_wrap .text_list li a {font-size: 19px;}                                                     
+        .cont6 .c6_wrap .view_plus {font-size: 23px; padding-left: 50px;}
+
+        /*company 영역*/
+        .com_intro .our_moto .moto_center .moto_bg {flex-direction: column; text-align: center;}
+
+        .com_intro .our_moto .moto_center .moto_intro .our_symbol li {position: relative; width: 33.3333%;}
+        .com_intro .our_moto .moto_center .moto_intro .our_symbol li img {width: 100%;}
+
+        .strength p {line-height: 30px; font-size: 19px;}
+
+}
+
+@media screen and (max-width:984px){
+        /*container 영역*/     
+        #container .cont1 {height: 100vh;}
+        #container .video_wrap {height: 100vh;}
+        #container video {width: unset}
+        .text_wrap {top: 55%;}
+        .all_text {width: 100%;}
+        .all_text .c2_context {font-size: 85px;}
+
+        /*cont2 영역*/
+        .cont2 {height: 380px;}
+
+        /*cont3 영역*/
+        .cont3 {width: 90%; margin: 125px auto;}
+        .cont3 .service li:nth-child(4) h3 {font-size: 45px;}
+        .cont3 .service li .c3_context {font-size: 17px;}
+        .cont3 .service {display: unset;}
+        .cont3 .service li {width: 50%;}
+        .cont3 .service li:nth-child(1) {float: left;}
+        .cont3 .service li:nth-child(2) {float: left;}
+        .cont3 .service li:nth-child(3) {float: right;}
+        .cont3 .service li:nth-child(4) {float: left; width: 50%; height: 531px;}
+        .cont3 .service li:nth-child(4) {padding-top: 160px;}
+        .cont3 .service li:nth-child(5) {float: right;}
+
+        /*cont4 영역*/
+        .cont4 .portfolio {overflow: hidden;}
+        .cont4 .portfolio li {width: 50%;}
+        .cont4 .portfolio li .list {height: unset;}
+        .cont4 .portfolio li img {width: 80%;}
+        .cont4 .portfolio li p {position: relative; left: 40px; bottom: 0;}
+        .cont4 .portfolio li:nth-child(5) .anniv {left: 0;}
+        .cont4 .portfolio li:nth-child(5) .anniv h3 {font-size: 55px;}
+        .cont4 .portfolio li:nth-child(6) p,
+        .cont4 .portfolio li:nth-child(7) p {bottom: 0; left: 30px}
+
+        /*cont5 영역*/
+        .cont5 .c5_center {width: 90%;}
+        .cont5 .partner {justify-content: space-between;}
+        .cont5 .partner li {width: 50%;}
+
+        /*footer 영역*/
+        #footer .our_list .list_all li a {font-size: 35px;}
+
+        /*recruit 영역*/
+        .recruit .recruit_title {left: 60px;}
+        .recruit .recruit_title h2 {font-size: 35px;}
+        .recruit .recruit_title p {font-size: 16px;}
+        .recruit .recruit_fcontext .fcontext_center .fcontext_menu li {width: 48%;}
+        .recruit .recruit_bcontext .tab {padding-left: 0;}
+        .recruit .recruit_bcontext .bcontext_info > div {font-size: 20px; width: 60%; line-height: 43px;}
+        .recruit .recruit_bcontext .bcontext_info .bcontext_botmenu li h3 {font-size: 17px;}
+        .recruit .recruit_bcontext .bcontext_info .bcontext_botmenu li p {font-size: 15px; line-height: 27px;}
+        .recruit .recruit_bottom .recbot_bg .recbot_text p {font-size: 20px;}
+
+        /*contact 영역*/    
+        .contact_all .contact_bg {height: 300px;}
+        .contact_all .contact_text {font-size: 45px;}    
+        .contact_all .contact_context {font-size: 16px;}
+        .contact_all .call {font-size: 16px;} 
+        .contact_all .contact_about label {font-size: 15px;}
+
+        .contact_all .contact_info {width: 80%;}
+
+        .contact_all .contact_menu {margin: 60px auto; width: 80%;}                     
+        .contact_all .contact_menu .menu_gnb {align-items: center; flex-direction: column;}
+        .contact_all .contact_menu .menu_gnb li {width: 100%; padding: 5% 0;}
+        .contact_all .contact_menu .menu_gnb li:nth-child(2) {border-left: none; border-right: none; border-top: 1px solid #dcdcdc; border-bottom: 1px solid #dcdcdc;}                 
+        .contact_all .contact_menu .menu_gnb li a i {font-size: 25px;}  
+        .contact_all .contact_menu .menu_gnb li a h3 {font-size: 19px;}
+        .contact_all .contact_menu .menu_gnb li a p {font-size: 16px;}
+}
+
+@media screen and (max-width:768px){
+        /*wrap 영역*/
+        #wrap {margin-bottom: 500px;}
+
+        /*header 영역*/
+        #header .logo {left: 70px;}
+        #header .logo img {width: 50px;}
+        #header .logo::after {height: 20px;}
+        #header .logo.dis::after {bottom: 30px; opacity: 0; cursor: unset;}                        
+        #header .hide_menu {right: 70px; top: 80px;}                      
+             
+        #header .wel_bg {border: 15px solid #ffde00;}
+        #header .welcome .sm_menu {left: 12%; top: 40%; transform: translateY(-50%); text-align: left;} 
+        #header .welcome .sm_menu li {margin-bottom: 30px;}
+        #header .welcome .sm_menu li a {font-size: 40px;}                                                                   
+        #header .welcome .copyright {left: 12%; bottom: 20%; transform: unset;}
+        #header .welcome .down_list {left: 12%; bottom: 25%;}  
+        #header .welcome .down_list li a {font-size: 14px;}
+
+        /*cont1 영역*/
+        .all_text {width: unset; padding: 0 70px;}
+        .text_wrap {top: 70%; left: 0; width: unset;}
+        .all_text .c2_context {font-size: 46px;}
+
+        /*cont2 영역*/
+        .cont2 {height: 230px;}
+
+        /*cont3 영역*/
+        .cont3 .service li p {font-size: 23px;}
+        .cont3 .service li:nth-child(4) .pc {display: none;}
+        .cont3 .service li:nth-child(4) .mobile {display: block; padding: 24px; padding-bottom: 0;}
+        .cont3 .service li .c3_context {font-size: 13px; line-height: 24px; padding: 24px;}
+
+        /*cont4 영역*/
+        .cont4 .portfolio li {width: 100%;}
+        .cont4 .portfolio li img {width: 100%;}
+        .cont4 .portfolio li p {left: 0; font-size: 17px;}
+        .cont4 .portfolio li:nth-child(5) {display: block;}
+        .cont4 .portfolio li:nth-child(5) .anniv {margin-top: 20px;}
+        .cont4 .portfolio li:nth-child(5) .anniv h3 {font-size: 45px;}
+        .cont4 .portfolio li:nth-child(5) .anniv .farm_name {text-align: center;}
+        .cont4 .portfolio li:nth-child(6) p,
+        .cont4 .portfolio li:nth-child(7) p {left: 0;}
+        .cont4 .view_center {padding-left: unset; text-align: center;}
+        .cont4 .view_center a {font-size: 25px;}
+        .cont4 .view_center a i {font-size: 25px;}
+
+        /*cont5 영역*/
+        .cont5 .c5_center .partner li img {width: 100px;}
+
+        /*cont6 영역*/
+        .cont6 {height: 680px; background-position: unset;}
+        .cont6 .c6_wrap h3 {padding-top: 100px; font-size: 45px;}
+        .cont6 .c6_wrap .text_list {padding-top: 25px; padding-left: unset; width: 90%; margin: 0 auto;}
+        .cont6 .c6_wrap .text_list li {padding: 10px 0; border-bottom: 2px solid #000; margin-top: 30px; width: 100%;}
+        .cont6 .c6_wrap .text_list li a {font-size: 17px;}
+        .cont6 .c6_wrap .text_list li img {width: 30px;}
+        .cont6 .c6_wrap .view_plus {padding-left: 27px;}
+
+        /*footer 영역*/
+        #footer .about_us {height: 530px;}
+        #footer .our_list .list_all {display: flex; justify-content: center; align-items: center; flex-direction: column;}
+        #footer .our_list .list_all li {margin: 3% 0; display: unset; width: unset;}
+        #footer .our_list .list_all li a {font-style: italic; font-size: 28px;}
+
+        /*company 영역*/
+        .gr_bg {height: 460px;}
+        .company .com_bg {height: 460px; background-size: cover;}
+        .company .com_bg .com_ftext {left: 30px; top: 220px;}
+        .company .com_bg .com_ftext .com_title {font-size: 70px; line-height: 60px;}
+        .company .com_bg .com_ftext .com_title span {font-size: 50px;}
+        .company .com_bg .com_ftext .com_context {font-size: 13px;}
+
+        .com_about .about_center {text-align: left; width: 90%;}
+        .com_about .about_center .our1 {font-size: 16px;}
+        .com_intro img {width: 100px;}
+        .com_intro .our_moto .moto_center {width: 100%;}
+        .com_intro .our_moto .moto_center .moto_bg {padding: 0 40px; text-align: left;}
+        .com_intro .our_moto .moto_center .moto_bg .moto_exp .moto_title {font-size: 14px;}
+        .com_intro .our_moto .moto_center .moto_bg .moto_exp .moto_context {font-size: 13px; padding-bottom: 20px;}
+        .com_intro .our_moto .moto_center .moto_intro .our_symbol li span {font-size: 12px;}
+
+        .strength p {font-size: 15px;}
+
+        /*contact 영역*/
+        .contact_all .contact_text {font-size: 30px;}
+        .contact_all .contact_context {font-size: 15px;}
+        .contact_all .call .mobile {display: block;}
+        .contact_all .contact_about label {font-size: 13px;}
+        .contact_all .contact_info input::placeholder {font-size: 12px;}
+        .contact_all .contact_info textarea::placeholder {font-size: 12px;}
+        .contact_all button {width: 240px; height: 45px; font-size: 14px;}
+        .contact_all .contact_menu .menu_gnb li a i {font-size: 20px;}  
+        .contact_all .contact_menu .menu_gnb li a h3 {font-size: 16px;}
+        .contact_all .contact_menu .menu_gnb li a p {font-size: 13px;}
+
+        /*recruit 영역*/
+        .recruit .recruit_fcontext .fcontext_center {width: 90%;}
+        .recruit .recruit_fcontext .fcontext_center .fcontext_menu li {width: 100%;}
+        .recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(1) p br {display: block;} 
+        .recruit .recruit_bcontext .bcontext_center h2 {font-size: 33px; line-height: 45px;}
+        .recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li p {font-size: 12px; margin-bottom: 13px;}
+        .recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li h3 {font-size: 14px;}
+        .recruit .recruit_bcontext .tab {padding: 0; flex-direction: column;}
+        .recruit .recruit_bcontext .bcontext_info > div {width: 100%; line-height: 35px; text-align: center; padding: 70px 0; font-size: 22px;}
+        .recruit .recruit_bcontext .bcontext_info > div br {display: none;}
+        .recruit .recruit_bottom::before {height: 400px;}
+
+        /*brochure 영역*/
+        .brochure {display: none;}
+}
+
+@media screen and (max-width:415px){
+        /*header 영역*/
+        #header .logo {left: 25px;}
+        #header .hide_menu {right: 25px;}
+
+        /*cont3 영역*/
+        .cont3 .service li:nth-child(4) {padding-top: 90px;}
+        .cont3 .service li:nth-child(4) .mobile {font-size: 30px;}
+        .cont3 .service li .c3_context {font-size: 12px;}
+
+        /*company 영역*/
+        .company .com_bg .com_ftext {top: 300px;}
+        .company .com_bg .com_ftext .com_title {font-size: 40px; line-height: 30px;}
+
+        .com_intro .our_moto .moto_center .moto_bg {height: 600px;}
+        .com_intro .our_moto .moto_center .moto_bg .moto_exp .moto_title {font-size: 11px;}
+        .com_intro .our_moto .moto_center .moto_bg .moto_exp .moto_context {font-size: 12px;}
+        .com_intro .our_moto .moto_center .moto_intro .our_symbol {flex-direction: column;}
+        .com_intro .our_moto .moto_center .moto_intro .our_symbol li span {font-size: 16px; bottom: 6%; right: 0; left: 0; text-align: center; transform: unset;}
+        .com_intro .our_moto .moto_center .moto_intro .our_symbol li {width: 100%;}
+
+        /*contact 영역*/
+        .contact_all .contact_text {font-size: 22px;}
+        .contact_all .contact_context {font-size: 11px;}
+        .contact_all .contact_context .mobile {display: block;}
+        .contact_all .call {font-size: 11px; line-height: 20px;}
+        .contact_all button {width: 170px; height: 40px; font-size: 13px;}
+
+        /*recruit 영역*/
+        .recruit .recruit_bcontext .bcontext_center {width: 90%;}
+        .recruit .recruit_title {left: 25px;}
+        .recruit .recruit_title h2 {font-size: 25px;}
+        .recruit .recruit_title p {font-size: 11px;}
+        .recruit .recruit_fcontext .fcontext_center .fcontext_menu li:nth-child(1) p .mobile {display: none;}
+        .recruit .recruit_bcontext .bcontext_center h2 {font-size: 26px; line-height: 40px;}
+        .recruit .recruit_bcontext .bcontext_info > div {text-align: left; font-size: 22px; padding: 20px 0;}
+        .recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li .mobile {display: block;}
+        .recruit .recruit_bcontext .bcontext_center .bcontext_topmenu li h3 {line-height: 18px; font-size: 13px;}
+        .recruit .recruit_bcontext .bcontext_center .bcontext_info .bcontext_botmenu li h3 {font-size: 0.8rem;}
+        .recruit .recruit_bcontext .bcontext_center .bcontext_info .bcontext_botmenu li p {font-size: 0.74rem;}
+        .recruit .recruit_bottom .recbot_bg .recbot_text p {font-size: 16px; line-height: 29px;}
+        .recruit .recruit_bottom .recbot_bg .recbot_text p .mobile {display: block;}
+}
